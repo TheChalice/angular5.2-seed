@@ -1,21 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 import { Hero } from './hero';
-import { HeroService } from './hero.service';
 
 @Component({
   selector: 'my-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
+  providers:[]
 })
-
-export class DashboardComponent implements OnInit  { 
+export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
 
-  constructor(private heroService: HeroService) { }
-  
+  constructor(
+    private http: HttpClient
+
+  ) { }
+  results: string[];
   ngOnInit(): void {
-    this.heroService.getHeroes()
-      .then(heroes => this.heroes = heroes.slice(1, 5));
+    
+    this.http.get('/apis').subscribe(data => {
+      console.log('This inside popup(): '+data );
+      // Read the result field from the JSON response.
+      this.results = data['results'];
+    });
+
   }
 }

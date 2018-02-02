@@ -1,6 +1,10 @@
 {
-  "/jiangtong": {
-    "target": "http://localhost:3000",
+  "/signin": {
+    "target": "https://lab.new.dataos.io",
+    "secure": false
+  },
+  "/apis": {
+    "target": "https://new.dataos.io:8443",
     "secure": false
   }
 }
