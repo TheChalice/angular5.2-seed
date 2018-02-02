@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Hero } from './hero';
-import { HeroService } from './hero.service';
+import { Hero } from '../../model/hero';
+import { HeroService } from '../../service/hero.service';
 
 @Component({
   selector: 'my-heroes',
   templateUrl: './heroes.component.html',
-  styleUrls: [ './heroes.component.css' ]
+  styleUrls: [ './heroes.component.scss' ]
 })
 export class HeroesComponent implements OnInit {
   title = 'Tour of Heroes';
@@ -19,7 +19,7 @@ export class HeroesComponent implements OnInit {
   ) {}
 
   getHeroes(): void {
-    this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+   
   }
 
   ngOnInit(): void {

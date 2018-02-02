@@ -3,7 +3,7 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Hero } from './hero';
+import { Hero } from '../model/hero';
 
 @Injectable()
 export class HeroService {
@@ -13,12 +13,8 @@ export class HeroService {
 
   constructor(private http: Http) { }
 
-  getHeroes(): Promise<Hero[]> {
-    // console.log('This inside popup(): ' + this.heroesUrl);
-    return this.http.get('/apis')
-               .toPromise()
-               .then(response => {console.log('This inside popup(): ' + response);response.json().data as Hero[]})
-               .catch(this.handleError);
+  getHeroes(id: number){
+    // console.log('ss ' + id);
   }
 
 

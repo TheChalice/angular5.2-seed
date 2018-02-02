@@ -4,18 +4,18 @@ import { FormsModule }   from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpModule, RequestOptions, XHRBackend } from '@angular/http';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import { ElModule } from 'element-angular'
 
 import { AppRoutingModule } from './app-routing.module';
-
 import { AppComponent }         from './app.component';
-import { DashboardComponent }   from './dashboard.component';
-import { HeroesComponent }      from './heroes.component';
-import { HeroDetailComponent }  from './hero-detail.component';
-import { HeroService }          from './hero.service';
 
+import { DashboardComponent }   from './page/dashboard/dashboard.component';
+import { HeroesComponent }      from './page/hero/heroes.component';
+import { HeroDetailComponent }  from './page/hero-detail/hero-detail.component';
 
-import { NoopInterceptor } from './http.service';
-import { ElModule } from 'element-angular'
+import { HeroService }          from './service/hero.service';
+import { NoopInterceptor } from './service/http.service';
+
 
 @NgModule({
   imports: [
