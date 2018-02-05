@@ -2,8 +2,8 @@ import { NgModule }             from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './pages/login/login.component';
-import { DashboardComponent }   from './pages/dashboard/dashboard.component';
-import { HeroesComponent }      from './pages/hero/heroes.component';
+// import { DashboardComponent }   from './pages/dashboard/dashboard.component';
+import { HeroesComponent }      from './pages/heroes/heroes.component';
 import { HeroDetailComponent }  from './pages/hero-detail/hero-detail.component';
 
 const routes: Routes = [

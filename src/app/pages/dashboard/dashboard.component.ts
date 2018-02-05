@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Hero } from '../../model/hero';
-import { HeroService } from '../../service/hero.service';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
+
+// import { Hero } from '../../model/hero';
+import { Hero } from '../../model/newhero';
+import { HeroService } from '../../service/hero.service';
+
 
 @Component({
   selector: 'my-dashboard',
@@ -11,7 +14,13 @@ import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
   providers:[HeroService]
 })
 export class DashboardComponent implements OnInit, OnChanges{
-  heroes: Hero[] = [];
+  heroes=[
+    new Hero(1, 'Windstorm'),
+    new Hero(13, 'Bombasto'),
+    new Hero(15, 'Magneta'),
+    new Hero(20, 'Tornado')
+  ];
+  
   num='11';
   data: any = [{
     label: '一级 1',
@@ -40,7 +49,7 @@ export class DashboardComponent implements OnInit, OnChanges{
   ngOnInit(): void {
     this.heroService.getHeroes(11);
     this.http.get('/apis').subscribe(data => {
-      console.log('This inside popup(): '+data['results']);
+      // console.log('This inside popup(): '+data['results']);
       // Read the result field from the JSON response.
       // this.results = data['results'];
     });

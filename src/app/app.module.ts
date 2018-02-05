@@ -11,9 +11,9 @@ import { AppComponent }         from './app.component';
 
 // import { DashboardComponent }   from './page/dashboard/dashboard.component';
 import { LoginComponent }      from './pages/login/login.component';
-import { HeroDetailComponent }  from './pages/hero-detail/hero-detail.component';
+// import { HeroDetailComponent }  from './pages/hero-detail/hero-detail.component';
 
-import { HeroService }          from './service/hero.service';
+
 import { NoopInterceptor } from './service/http.service';
 
 
@@ -36,7 +36,7 @@ import { NoopInterceptor } from './service/http.service';
       provide: HTTP_INTERCEPTORS,
       useClass: NoopInterceptor,
       multi: true,
-    },HeroService],
+    }],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

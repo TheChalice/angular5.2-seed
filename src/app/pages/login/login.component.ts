@@ -28,11 +28,7 @@ export class LoginComponent implements OnInit, OnChanges{
   }
   ngOnInit(): void {
     // this.heroService.getHeroes(11);
-    this.http.get('/apis').subscribe(data => {
-      console.log('This inside popup(): '+data['results']);
-      // Read the result field from the JSON response.
-      // this.results = data['results'];
-    });
+  
     // this.validateForm = this.formBuilder.group({
     //   password: [ '', [this.passwordValidator] ],
     //   mail: [ '', [this.emailValidator] ],
