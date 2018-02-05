@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'ngx-pages',
   template: `
+  
   <el-menu [model]="0" (modelChange)="handle($event)" class="el-menu-demo" mode="horizontal"
   background-color="#545c64"
   active-text-color="#ffd04b"
