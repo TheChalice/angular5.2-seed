@@ -12,7 +12,26 @@ import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 })
 export class DashboardComponent implements OnInit, OnChanges{
   heroes: Hero[] = [];
-
+  num='11';
+  data: any = [{
+    label: '一级 1',
+    children: [{
+      label: '二级 1-1',
+      children: [{
+        label: '三级 1-1-1',
+      }]
+    }]
+  }, {
+    label: '一级 2',
+    children: [{
+      label: '二级 2-1',
+    }]
+  }, {
+    label: '一级 3',
+  }];
+  handle(index: string): void {
+    console.log(index)
+  }
   constructor(
     private http: HttpClient,
     private heroService: HeroService,

@@ -1,0 +1,19 @@
+<h3>login</h3>
+<el-form  label-width="100px"
+ [show-icon]="true" [show-message]="true" el-class="form-demo">
+
+  <el-form-item label="邮箱" >
+    <el-input ></el-input>
+  </el-form-item>
+  
+  <el-form-item label="密码"
+    >
+    <el-input native-type="password"></el-input>
+  </el-form-item>
+  
+  <el-form-item>
+    <el-button type="primary" (click)="submit()">提交</el-button>
+    <el-button (click)="reset()">重置</el-button>
+  </el-form-item>
+  
+</el-form>

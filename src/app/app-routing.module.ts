@@ -1,19 +1,23 @@
 import { NgModule }             from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 
-import { DashboardComponent }   from './page/dashboard/dashboard.component';
-import { HeroesComponent }      from './page/hero/heroes.component';
-import { HeroDetailComponent }  from './page/hero-detail/hero-detail.component';
+import { LoginComponent } from './pages/login/login.component';
+import { DashboardComponent }   from './pages/dashboard/dashboard.component';
+import { HeroesComponent }      from './pages/hero/heroes.component';
+import { HeroDetailComponent }  from './pages/hero-detail/hero-detail.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard',  component: DashboardComponent },
-  { path: 'detail/:id', component: HeroDetailComponent },
-  { path: 'heroes',     component: HeroesComponent }
+  { path: 'console', loadChildren: 'app/pages/pages.module#PagesModule' },
+  { path: 'login', component:LoginComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login', }
 ];
-
+const config: ExtraOptions = {
+  useHash: true,
+};
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(routes, config) ],
   exports: [ RouterModule ]
 })
+
 export class AppRoutingModule {}
