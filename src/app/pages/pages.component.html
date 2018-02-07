@@ -1,15 +1,43 @@
-<el-menu [model]="0" (modelChange)="handle($event)" class="el-menu-demo" mode="horizontal" background-color="#545c64" active-text-color="#ffd04b"
-  text-color="#fff">
-  <el-menu-item index="1">处理中心</el-menu-item>
-  <el-submenu index="2" title="我的工作台">
-    <el-menu-item index="2-1">选项1</el-menu-item>
-    <el-menu-item index="2-2">选项2</el-menu-item>
-    <el-menu-item index="2-3">选项3</el-menu-item>
-  </el-submenu>
-  <el-menu-item index="3">
-    <a [routerLink]="['/console/heroes']" >Heroes</a>
-  </el-menu-item>
-</el-menu>
-<el-tree [model]="data">
-</el-tree>
-<router-outlet></router-outlet>
+<el-container>
+  <div el-row>
+    <div el-col span="24">
+      <div class="grid-content bg-purple-dark">
+        <el-header>
+          <el-menu [model]="0" (modelChange)="handle($event)" class="el-menu-demo" mode="horizontal" background-color="#545c64" active-text-color="#ffd04b"
+            text-color="#fff">
+            <el-menu-item index="1">
+              <a [routerLink]="['/console/dashboard']">dashboard</a>
+            </el-menu-item>
+            <el-submenu index="2" title="我的工作台">
+              <el-menu-item index="2-1">选项1</el-menu-item>
+              <el-menu-item index="2-2">选项2</el-menu-item>
+              <el-menu-item index="2-3">选项3</el-menu-item>
+            </el-submenu>
+            <el-menu-item index="3">
+              <a [routerLink]="['/console/heroes']">Heroes</a>
+            </el-menu-item>
+          </el-menu>
+        </el-header>
+      </div>
+    </div>
+  </div>
+  <div el-row>
+    <div el-col span="4">
+      <div class="grid-content bg-purple">
+          <el-aside>
+              <el-tree [model]="data">
+              </el-tree>
+            </el-aside>
+      </div>
+    </div>
+    <div el-col span="20">
+      <div class="grid-content bg-purple-light">
+          <el-main>
+              <router-outlet></router-outlet>
+            </el-main>
+      </div>
+    </div>
+  </div>
+  
+ 
+</el-container>

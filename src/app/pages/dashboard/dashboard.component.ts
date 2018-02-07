@@ -11,17 +11,18 @@ import { HeroService } from '../../service/hero.service';
   selector: 'my-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  providers:[HeroService]
+  providers: [HeroService]
 })
-export class DashboardComponent implements OnInit, OnChanges{
-  heroes=[
+export class DashboardComponent implements OnInit, OnChanges {
+  heroes = [
     new Hero(1, 'Windstorm'),
     new Hero(13, 'Bombasto'),
     new Hero(15, 'Magneta'),
     new Hero(20, 'Tornado')
   ];
-  
-  num='11';
+  results: any[];
+  num = '11';
+  aa: string = "`12";
   data: any = [{
     label: '一级 1',
     children: [{
@@ -45,18 +46,23 @@ export class DashboardComponent implements OnInit, OnChanges{
     private http: HttpClient,
     private heroService: HeroService,
   ) { }
-  results: string[];
-  ngOnInit(): void {
+ngOnInit(): void {
+    //tableData: int =0;t
+   
+    //this.app()
+
     this.heroService.getHeroes(11);
     this.http.get('/apis').subscribe(data => {
-      // console.log('This inside popup(): '+data['results']);
+      let datas: any =[]
+      this.results = data['groups'];
+      // console.log('datas',this.results);
       // Read the result field from the JSON response.
       // this.results = data['results'];
     });
 
   }
   ngOnChanges(): void {
-    
+
 
   }
 }

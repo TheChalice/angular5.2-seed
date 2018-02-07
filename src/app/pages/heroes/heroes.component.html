@@ -1,5 +1,25 @@
  <h2>My Heroes</h2>
-    <ul class="heroes">
+ <el-table [model]="heroes" [scroll-x]="true" center="all">
+  <el-table-column  model-key="name" [render-html]="true" label="姓名" width="140" 
+  cell-click="handle(scope)" >
+    
+  </el-table-column>
+  <el-table-column model-key="add" label="路径" width="170">
+  </el-table-column>
+  <el-table-column model-key="data" label="版本" width="140" [render-html]="true">
+  </el-table-column>
+   <el-table-column label="操作" width="120">
+    <ng-template #slot let-scope="scope">
+      <el-button type="text" size="small" (click)="handle(scope)">删除</el-button>
+    </ng-template>
+  </el-table-column>
+   <el-table-column label="操作" width="120">
+    <ng-template #slot let-scope="scope">
+      <el-button type="text" size="small" (click)="handle(scope)">删除</el-button>
+    </ng-template>
+  </el-table-column>
+</el-table>
+    <!-- <ul class="heroes">
       <li *ngFor="let hero of heroes"
         [class.selected]="hero === selectedHero"
         (click)="onSelect(hero)">
@@ -11,4 +31,4 @@
     {{selectedHero.name | uppercase}} is my hero
   </h2>
   <button (click)="gotoDetail()">View Details</button>
-</div>
+</div> -->
